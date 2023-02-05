@@ -1,0 +1,53 @@
+version: "3.4"
+
+services:
+ #  bookingservice:
+ #   image: bookingservice
+ #   build:
+ #    context: .
+ #    dockerfile: ./bookingservice/Dockerfile
+ #   ports:
+ #    - 8081:8081
+ #   networks:
+ #    - sweethomenetwork
+ #   depends_on:
+ #    - eurekaserver
+ #    - sqldatabase
+
+ # paymentservice:
+ #   image: paymentservice
+ #   build:
+ #     context: .
+ #     dockerfile: ./paymentservice/Dockerfile
+ #   ports:
+ #     - 8083:8083
+ #   networks:
+ #     - sweethomenetwork
+ #   depends_on:
+ #     - eurekaserver
+
+ #  notificationservice:
+ #   image: notificationservice
+ #   build:
+ #    context: .
+ #    dockerfile: ./notificationservice/Dockerfile
+ #   ports:
+ #    - 8082:8082
+ #   networks:
+ #    - sweethomenetwork
+ #   depends_on:
+ #    - eurekaserver
+
+ eurekaserver:
+  image: eurekaserver
+  build:
+   context: .
+   dockerfile: ./eurekaserver/Dockerfile
+  ports:
+   - 8761:8761
+  networks:
+   - sweethomenetwork
+
+networks:
+ sweethomenetwork:
+  driver: bridge
